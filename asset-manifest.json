@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/REMWaste/static/css/main.c80e93c0.css",
-    "main.js": "/REMWaste/static/js/main.ab7b8886.js",
+    "main.css": "/REMWaste/static/css/main.427def86.css",
+    "main.js": "/REMWaste/static/js/main.f399db09.js",
     "index.html": "/REMWaste/index.html",
-    "main.c80e93c0.css.map": "/REMWaste/static/css/main.c80e93c0.css.map",
-    "main.ab7b8886.js.map": "/REMWaste/static/js/main.ab7b8886.js.map"
+    "main.427def86.css.map": "/REMWaste/static/css/main.427def86.css.map",
+    "main.f399db09.js.map": "/REMWaste/static/js/main.f399db09.js.map"
   },
   "entrypoints": [
-    "static/css/main.c80e93c0.css",
-    "static/js/main.ab7b8886.js"
+    "static/css/main.427def86.css",
+    "static/js/main.f399db09.js"
   ]
 }
