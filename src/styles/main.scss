@@ -1,0 +1,386 @@
+// Variables
+$color-background: #121212;
+$color-card-bg: #1C1C1C;
+$color-border: #2A2A2A;
+$color-primary: #0037c1;
+$color-primary-hover: #0056b3;
+$color-primary-transparent: #0037c180;
+$color-text: #fff;
+$color-text-secondary: #555;
+$color-text-tertiary: #666;
+$color-text-muted: #9ca3af;
+$color-text-nav: #e5e7eb;
+$color-btn-light: #e9ecef;
+$color-btn-dark: #2a2a2a;
+$color-btn-dark-hover: #3a3a3a;
+$color-orange: #eab308;
+
+$font-family-base: Inter, system-ui, sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.6;
+
+$border-radius: 8px;
+$transition-default: 0.3s ease;
+$box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  background-color: $color-background;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: $spacing-xl 0 140px;
+}
+
+button {
+  font-family: inherit;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: $spacing-md;
+}
+
+/* Navigation styles */
+.navigation {
+  padding: 0 33px;
+  background-color: $color-background;
+  box-shadow: $box-shadow-light;
+  overflow-x: auto;
+  margin-bottom: $spacing-sm;
+  
+  &-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 1160px;
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: $color-text-nav;
+    cursor: pointer;
+    opacity: .5;
+    position: relative;
+    white-space: nowrap;
+    
+    &.active {
+      color: $color-text;
+      opacity: 1;
+      
+      svg {
+        stroke: $color-primary;
+      }
+    }
+    
+    span {
+      font-size: $font-size-base;
+      margin-left: $spacing-xs;
+    }
+    
+    &:not(.active):hover {
+      cursor: not-allowed;
+    }
+  }
+  
+  hr {
+    width: 64px;
+    border-color: $color-border;
+    opacity: .5;
+  }
+
+  button.active + hr {
+    border-color: $color-primary;
+    opacity: 1;
+  }
+
+}
+
+/* Skip Page styles */
+.skip-page {
+  padding: 20px $spacing-md;
+  color: $color-text;
+  
+  h2,
+  .subtitle {
+    text-align: center;
+  }
+  
+  .subtitle {
+    color: $color-text-muted;
+    line-height: 24px;
+    margin-bottom: $spacing-xl;
+  }
+  
+  p {
+    color: $color-text-secondary;
+  }
+  
+  &.loading,
+  &.error {
+    text-align: center;
+    padding: 50px 0;
+    
+    h2,
+    p {
+      color: $color-text;
+    }
+  }
+}
+
+.skip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-lg;
+}
+
+.skip-card {
+  position: relative;
+  cursor: pointer;
+  border: 2px solid $color-border;
+  border-radius: $border-radius;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $color-card-bg;
+  transition: $transition-default;
+  
+  &:hover {
+    border-color: $color-primary-transparent;
+  }
+  
+  &.selected {
+    border-color: $color-primary;
+
+    .select-skip-btn {
+      background-color: $color-primary;
+      color: $color-text;
+
+      &:hover {
+        background-color: #002da1;
+      }
+    }
+  }
+  
+  .size {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    border-radius: 50px;
+    padding: 3px $spacing-sm;
+    background-color: $color-primary;
+    font-size: 14px;
+    color: $color-text;
+  }
+
+  .private {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 30px;
+    top: 165px;
+    gap: 6px;
+    border-radius: $spacing-xs;
+    padding: 6px $spacing-sm;
+    background-color: #000;
+    font-size: $spacing-sm;
+    color: $color-orange;
+
+    svg {
+      width: $spacing-md;
+      height: $spacing-md;
+    }
+  }
+  
+  .details {
+    padding: 15px;
+  }
+  
+  .image-container {
+    text-align: center;
+    margin-bottom: 15px;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+  }
+  
+  .info {
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 20px;
+      line-height: 28px;
+      font-weight: bold;
+      color: $color-text;
+      margin-bottom: $spacing-xs;
+    }
+    
+    .description,
+    .week {
+      font-size: 14px;
+      color: $color-text-muted;
+      margin-bottom: $spacing-md;
+    }
+    
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+      color: $color-primary;
+      margin-right: 5px;
+    }
+  }
+
+  .select-skip-btn {
+    width: 100%;
+    padding: $spacing-sm $spacing-md;
+    margin-top: auto;
+    background-color: $color-btn-dark;
+    color: $color-text;
+    font-size: $spacing-md;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+    height: 48px;
+
+    svg {
+      max-width: $spacing-md;
+    }
+    
+    &:hover {
+      background-color: $color-btn-dark-hover;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: $spacing-md;
+  }
+}
+
+/* Footer styles */
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: $spacing-md;
+  background-color: $color-card-bg;
+  border-top: 1px solid $color-border;
+  color: $color-text;
+
+  .footer-inner {
+    max-width: 1297px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 $spacing-xs;
+
+    .footer-details {
+      display: flex;
+      font-size: 14px;
+      color: $color-text-muted;
+      align-items: center;
+      gap: $spacing-md;
+    }
+    
+    .currency {
+      font-size: $spacing-lg;
+      font-weight: bold;
+      color: $color-primary;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-md;
+
+    button {
+      padding: $spacing-xs $spacing-md;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      min-height: 40px;
+      color: $color-text;
+      transition: $transition-default;
+    }
+
+    .back-btn {
+      background-color: $color-btn-dark;
+
+      &:hover {
+        background-color: $color-btn-dark-hover;
+      }
+    }
+    
+    .next-btn {
+      background-color: $color-primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-xs;
+      
+      svg {
+        max-width: 16px;
+      }
+      
+      &:hover {
+        background-color: #002da1;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: $spacing-md;
+      padding: 0;
+
+      .footer-details {
+        justify-content: end;
+      }
+    }
+    
+    .actions {
+      button {
+        width: 50%;
+      }
+    }
+  }
+}
