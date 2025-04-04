@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.c80e93c0.css",
-    "main.js": "/static/js/main.3e874670.js",
-    "index.html": "/index.html",
-    "main.c80e93c0.css.map": "/static/css/main.c80e93c0.css.map",
-    "main.3e874670.js.map": "/static/js/main.3e874670.js.map"
+    "main.css": "/REMWaste/static/css/main.c80e93c0.css",
+    "main.js": "/REMWaste/static/js/main.ab7b8886.js",
+    "index.html": "/REMWaste/index.html",
+    "main.c80e93c0.css.map": "/REMWaste/static/css/main.c80e93c0.css.map",
+    "main.ab7b8886.js.map": "/REMWaste/static/js/main.ab7b8886.js.map"
   },
   "entrypoints": [
     "static/css/main.c80e93c0.css",
-    "static/js/main.3e874670.js"
+    "static/js/main.ab7b8886.js"
   ]
 }
